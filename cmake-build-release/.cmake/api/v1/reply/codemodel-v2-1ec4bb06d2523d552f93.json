@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.24"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "delaunay::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-delaunay-Debug-a6780a00bb071d900292.json",
+					"jsonFile" : "target-delaunay-Release-2041e99b14977dc8ce90.json",
 					"name" : "delaunay",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/__Code__/Code_Repository/delaunay/cmake-build-debug",
+		"build" : "D:/__Code__/Code_Repository/delaunay/cmake-build-release",
 		"source" : "D:/__Code__/Code_Repository/delaunay"
 	},
 	"version" : 

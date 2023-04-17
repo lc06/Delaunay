@@ -23,6 +23,8 @@ struct Point {
     float y{};
     float z{};
 
+    glm::vec3 normal = {0.f, 0.f, 0.f};
+
     Point() = default;
     Point(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
     Point(float _id, float _x, float _y, float _z) : id(_id), x(_x), y(_y), z(_z) {}
@@ -71,6 +73,11 @@ struct Triangle {
         b = l2.length();
         c = l3.length();
     }
+    Triangle(Point _p1, Point _p2, Point _p3) : l1(Edge(_p1, _p2)), l2(Edge(_p2, _p3)), l3(Edge(_p3, _p1)) {
+        a = l1.length();
+        b = l2.length();
+        c = l3.length();
+    }
 
     bool isReseaonable() const {
         if(a + b <= c || a + c <= b || b + c <= a) return false;
@@ -96,6 +103,13 @@ struct Triangle {
         double angleC = acos((a * a + b * b - c * c) / (2. * a * b));
 
         return angleA < angleB ? (angleA < angleC ? angleA : angleC) : (angleB < angleC ? angleB : angleC);
+    }
+
+    glm::vec3 getNormal() {
+        glm::vec3 normal = glm::normalize(glm::cross(l1.getEdgeVector(), l2.getEdgeVector()));
+        if(normal.z < 0) normal = glm::normalize(glm::cross(l2.getEdgeVector(), l1.getEdgeVector()));
+
+        return normal;
     }
 
     bool inside(Point p) {
@@ -234,6 +248,7 @@ struct Bound {
 class Delaunay {
 private:
     std::vector<Point> points;
+    std::vector<float> p_z;
     Bound bound;
     int dim {4};
     void readFile(std::string path);

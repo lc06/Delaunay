@@ -52,21 +52,21 @@ build cmake_object_order_depends_target_delaunay: phony || CMakeFiles/delaunay.d
 build CMakeFiles/delaunay.dir/main.cpp.obj: CXX_COMPILER__delaunay_Release D$:/__Code__/Code_Repository/delaunay/main.cpp || cmake_object_order_depends_target_delaunay
   DEP_FILE = CMakeFiles\delaunay.dir\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -fdiagnostics-color=always
-  INCLUDES = -ID:/openglrepo/Include
+  INCLUDES = -ID:/openglrepo/Include -ID:/__Code__/Code_Repository/delaunay/include
   OBJECT_DIR = CMakeFiles\delaunay.dir
   OBJECT_FILE_DIR = CMakeFiles\delaunay.dir
 
 build CMakeFiles/delaunay.dir/glad.c.obj: C_COMPILER__delaunay_Release D$:/__Code__/Code_Repository/delaunay/glad.c || cmake_object_order_depends_target_delaunay
   DEP_FILE = CMakeFiles\delaunay.dir\glad.c.obj.d
   FLAGS = -O3 -DNDEBUG -fdiagnostics-color=always
-  INCLUDES = -ID:/openglrepo/Include
+  INCLUDES = -ID:/openglrepo/Include -ID:/__Code__/Code_Repository/delaunay/include
   OBJECT_DIR = CMakeFiles\delaunay.dir
   OBJECT_FILE_DIR = CMakeFiles\delaunay.dir
 
 build CMakeFiles/delaunay.dir/include/Delaunay.cpp.obj: CXX_COMPILER__delaunay_Release D$:/__Code__/Code_Repository/delaunay/include/Delaunay.cpp || cmake_object_order_depends_target_delaunay
   DEP_FILE = CMakeFiles\delaunay.dir\include\Delaunay.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -fdiagnostics-color=always
-  INCLUDES = -ID:/openglrepo/Include
+  INCLUDES = -ID:/openglrepo/Include -ID:/__Code__/Code_Repository/delaunay/include
   OBJECT_DIR = CMakeFiles\delaunay.dir
   OBJECT_FILE_DIR = CMakeFiles\delaunay.dir\include
 

@@ -23,7 +23,9 @@ void Delaunay::readFile(std::string path) {
         word >> p[0] >> p[1] >> p[2] >> p[3];
         p[0] = i++;
 
-//        p[3] = 1.0f;
+        p_z.emplace_back(p[3]);
+        p[3] = 1.0f;
+
         points.emplace_back(p);
     }
     fin.close();
@@ -147,6 +149,13 @@ void Delaunay::generateTIN(std::vector<unsigned int>& triIDs) {
         triIDs.push_back(b - 1);
         triIDs.push_back(c - 1);
 
+        Triangle tri(Point(points[a-1].x, points[a-1].y, p_z[a-1]),
+                     Point(points[b-1].x, points[b-1].y, p_z[b-1]),
+                     Point(points[c-1].x, points[c-1].y, p_z[c-1]));
+        points[a-1].normal += tri.getNormal();
+        points[a-1].normal += tri.getNormal();
+        points[a-1].normal += tri.getNormal();
+
         edges.emplace(p1, _p);
         edges.emplace(p2, _p);
 
@@ -160,8 +169,14 @@ void Delaunay::getVertices(std::vector<float>& vertices) {
         vertices.push_back(p.id);
         vertices.push_back((p.x - bound.x_min) / (bound.x_max - bound.x_min) * 2.f - 1.f);
         vertices.push_back((p.y - bound.y_min) / (bound.y_max - bound.y_min) * 2.f - 1.f);
-        vertices.push_back((p.z - bound.z_min) / (bound.z_max - bound.z_min) * 2.f - 1.f);
-//        vertices.push_back(p.z);
+//        vertices.push_back((p.z - bound.z_min) / (bound.z_max - bound.z_min) * 2.f - 1.f);
+        vertices.push_back(p.z);
+
+        glm::vec3 pNormal = glm::normalize(p.normal);
+        vertices.push_back(pNormal.x);
+        vertices.push_back(pNormal.y);
+        vertices.push_back(pNormal.z);
+
     }
 
 }
